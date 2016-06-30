@@ -1,0 +1,6 @@
+.hgignore
+.project
+**/.hg/*
+**/.idea/*
+**/ThinkPHP/*
+**/Runtime/*

@@ -1,0 +1,6 @@
+@mixin flex($num) {
+	-webkit-box-flex: $num;
+	box-flex: $num;
+	-webkit-flex: $num;
+	flex: $num;
+}
