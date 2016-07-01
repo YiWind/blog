@@ -1,1 +1,40 @@
 @import "../fonts/iconfont.css", "variable", "extend", "mixin";
+.page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    .sui-navbar {
+        & + .content {
+            padding-top: 40px;
+        }
+    }
+    .content {
+        &>.main-left {
+            top: 40px;
+        }
+    }
+}
+.main-left {
+    left: 0;
+    bottom: 0;
+    top: 40px;
+    position: fixed;
+    width: 150px;
+    overflow: auto;
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #f0f0f0;
+    }
+}
+.main {
+    margin-left: 150px;
+    padding: 10px;
+}
