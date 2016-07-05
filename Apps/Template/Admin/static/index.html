@@ -1,130 +1,133 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="UTF-8" />
-		<title>Document</title>
-		<link rel="stylesheet" href="css/sui.min.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<script src="js/jquery.min.js"></script>
-		<script src="js/sui.min.js"></script>
-	</head>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/sui.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/sui.min.js"></script>
+</head>
 
-	<body>
-		<div class="page">
-			<div class="sui-navbar navbar-inverse navbar-fixed-top">
-				<div class="navbar-inner">
-					<div class="sui-container"><a href="./index.html" class="sui-brand">Admin</a>
-						<ul class="sui-nav">
-							<li class="active"><a href="#">控制台</a></li>
+<body>
+<div class="page">
+	<div class="sui-navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="sui-container"><a href="./index.html" class="sui-brand">Admin</a>
+				<ul class="sui-nav">
+					<li class="active"><a href="#">控制台</a></li>
+				</ul>
+				<ul class="sui-nav pull-right">
+					<li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown"
+					                            class="dropdown-toggle">admin</a>
+						<ul role="menu" class="sui-dropdown-menu">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">退出</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
 						</ul>
-						<ul class="sui-nav pull-right">
-							<li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">admin</a>
-								<ul role="menu" class="sui-dropdown-menu">
-									<li role="presentation"><a role="menuitem" tabindex="-1" href="#">退出</a></li>
-									<li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
-								</ul>
-							</li>
-						</ul>
-						<form class="sui-form sui-form pull-right">
-							<input type="text" placeholder="宝贝/店铺名称...">
-							<button class="sui-btn">搜索</button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="content">
-				<div class="main-left">
-					<ul class="sui-nav nav-list">
-						<li class="nav-header">服装</li>
-						<li class="active"><a>阿迪达斯</a></li>
-						<li><a>耐克</a></li>
-						<li><a>匡威</a></li>
-						<li class="nav-header">美食</li>
-						<li><a>湘菜 </a></li>
-						<li><a>自助</a></li>
-						<li><a>日料</a></li>
-					</ul>
-				</div>
-				<div class="main">
-					<ul class="sui-breadcrumb">
-						<li><a href="#">首页</a></li>
-						<li><a href="#">手机数码、电脑办公</a></li>
-						<li class="active">智能手机</li>
-					</ul>
-					<p>表格手册：http://datatables.club/</p>
-					<link rel="stylesheet" href="http://cdn.bootcss.com/datatables/1.10.12/css/jquery.dataTables.min.css" />
-					<script src="http://cdn.bootcss.com/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
-					<table class="asdasdas">
-						<thead>
-							<tr>
-								<th>选择</th>
-								<th>id</th>
-								<th>email</th>
-								<th>创建时间</th>
-								<th>更新时间</th>
-								<th>操作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><input type="checkbox" /></td>
-								<td>所有交易</td>
-								<td>9999.00</td>
-								<td>999</td>
-								<td>99999.00</td>
-								<td>
-									<a href="#">编辑</a>
-									<a href="#">删除</a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" /></td>
-								<td>待付款</td>
-								<td>9999.00</td>
-								<td>999</td>
-								<td>99999.00</td>
-								<td>
-									<a href="#">编辑</a>
-									<a href="#">删除</a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" /></td>
-								<td>已发货</td>
-								<td>9999.00</td>
-								<td>999</td>
-								<td>99999.00</td>
-								<td>
-									<a href="#">编辑</a>
-									<a href="#">删除</a>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" /></td>
-								<td>已成功</td>
-								<td>9999.00</td>
-								<td>999</td>
-								<td>99999.00</td>
-								<td>
-									<a href="#">编辑</a>
-									<a href="#">删除</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					新增
-				</div>
+					</li>
+				</ul>
+				<form class="sui-form sui-form pull-right">
+					<input type="text" placeholder="宝贝/店铺名称...">
+					<button class="sui-btn">搜索</button>
+				</form>
 			</div>
 		</div>
-		<script>
-			$(document).ready(function() {
-				$('.asdasdas').DataTable({
-					"info": false, // 控制是否显示左下角的信息
-					"paging": false
-				});
-			});
-		</script>
-	</body>
+	</div>
+	<div class="content">
+		<div class="main-left">
+			<ul class="sui-nav nav-list">
+				<li class="nav-header">服装</li>
+				<li class="active"><a>阿迪达斯</a></li>
+				<li><a>耐克</a></li>
+				<li><a>匡威</a></li>
+				<li class="nav-header">美食</li>
+				<li><a>湘菜 </a></li>
+				<li><a>自助</a></li>
+				<li><a>日料</a></li>
+			</ul>
+		</div>
+		<div class="main">
+			<ul class="sui-breadcrumb">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">手机数码、电脑办公</a></li>
+				<li class="active">智能手机</li>
+			</ul>
+			<div class="main-content">
+				<p>表格手册：http://datatables.club/</p>
+				<link rel="stylesheet" href="http://cdn.bootcss.com/datatables/1.10.12/css/jquery.dataTables.min.css"/>
+				<script src="http://cdn.bootcss.com/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+				<table class="asdasdas">
+					<thead>
+					<tr>
+						<th>选择</th>
+						<th>id</th>
+						<th>email</th>
+						<th>创建时间</th>
+						<th>更新时间</th>
+						<th>操作</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><input type="checkbox"/></td>
+						<td>所有交易</td>
+						<td>9999.00</td>
+						<td>999</td>
+						<td>99999.00</td>
+						<td>
+							<a href="#">编辑</a>
+							<a href="#">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"/></td>
+						<td>待付款</td>
+						<td>9999.00</td>
+						<td>999</td>
+						<td>99999.00</td>
+						<td>
+							<a href="#">编辑</a>
+							<a href="#">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"/></td>
+						<td>已发货</td>
+						<td>9999.00</td>
+						<td>999</td>
+						<td>99999.00</td>
+						<td>
+							<a href="#">编辑</a>
+							<a href="#">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"/></td>
+						<td>已成功</td>
+						<td>9999.00</td>
+						<td>999</td>
+						<td>99999.00</td>
+						<td>
+							<a href="#">编辑</a>
+							<a href="#">删除</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				新增
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function () {
+		$('.asdasdas').DataTable({
+			"info": false, // 控制是否显示左下角的信息
+			"paging": false
+		});
+	});
+</script>
+</body>
 
 </html>

@@ -457,12 +457,15 @@ $User->register_time = NOW_TIME; // 增加register_time属性
 $User->add(); // 新增用户数据
 ```
 一旦调用了add方法（或者save方法），创建在内存中的数据对象就会失效，如果希望创建好的数据对象在后面的数据处理中再次调用，可以保存数据对象先，例如：
+
 ```
 $User = D("User"); // 实例化User对象
 $data = $User->create(); // 保存生成的数据对象
 $User->add();
 ```
+
 不过要记得，如果你修改了内存中的数据对象并不会自动更新保存的数据对象，因此下面的用法是错误的：
+
 ```
 $User = D("User"); // 实例化User对象
 $data = $User->create(); // 保存生成的数据对象
@@ -470,9 +473,13 @@ $User->status = 2; // 修改数据对象的status属性
 $User->register_time = NOW_TIME; // 增加register_time属性
 $User->add($data);
 ```
+
 上面的代码我们修改了数据对象，但是仍然写入的是之前保存的数据对象，因此对数据对象的更改操作将会无效。所以就是create会存储好数据，只需要调用add,save而不需要在add()或者save()里面加$data。
+
 # 修改模板目录
+
 ### 方法1
+
 ```
 define('TMPL_PATH','./Apps/Static/'); // 修改模板目录
 结构变成了
@@ -483,18 +490,23 @@ apps
     |-- Home
 	|-- Admin
 ```
+
 ### 方法2
+
 通过修改**config.php**文件
+
 ```
 把当前模块的视图目录指定到最外层的Theme目录下面，而不是放到当前模块的View目录下面。 原来的./Application/Home/View/User/add.html 变成了 ./Theme/User/add.html 。
 'VIEW_PATH'=>'./Theme/', 
 ```
+
 > 如果同时定义了TMPL_PATH常量和VIEW_PATH设置参数，那么以当前模块的VIEW_PATH参数设置优先。
 
 
 # 模板赋值
 
 #### 方法1
+
 ```
 控制器：
 $this->name= "liushuanhua"
@@ -503,7 +515,9 @@ $this->age= "四分之一个世纪"
 {$name}
 {$age}
 ```
+
 #### 方法2
+
 ```
 控制器
 $data = array(
@@ -514,3 +528,156 @@ $this->assign('data', $data);
 模板
 {$data.name} or {$data['name']}
 ```
+
+# 模板替换
+
+```
+__ROOT__： 会替换成当前网站的地址（不含域名）
+__APP__： 会替换成当前应用的URL地址 （不含域名）
+__MODULE__：会替换成当前模块的URL地址 （不含域名）
+__CONTROLLER__（__或者__URL__ 兼容考虑）： 会替换成当前控制器的URL地址（不含域名）
+__ACTION__：会替换成当前操作的URL地址 （不含域名）
+__SELF__： 会替换成当前的页面URL
+__PUBLIC__：会被替换成当前网站的公共目录 通常是 /Public/
+```
+
+#### 通过配置文件修改替换规则
+
+```
+'TMPL_PARSE_STRING' =>array(
+	'__PUBLIC__' => '/Common', // 更改默认的/Public 替换规则
+	'__JS__' => '/Public/JS/', // 增加新的JS类库路径替换规则
+	'__UPLOAD__' => '/Uploads', // 增加新的上传路径替换规则
+)
+或者新增规则
+'TMPL_PARSE_STRING' =>array(
+	'--PUBLIC--' => '__PUBLIC__', // 采用新规则输出`__PUBLIC__`字符串
+)
+```
+
+# 模板继承
+
+模板文件的block标签里面的内容表示可以被被继承的文件修改，比如：
+```
+// base.html 有这样一段文字
+<block name="title"><title>Document</title></block>
+```
+继承文件为index.html
+```
+// index.html
+<extend name="base" /> // 继承base.html模板
+<block name="title">
+	<title>{$title}</title>
+</block>
+```
+index文件的block[name="title"]标签里面的内容会完全覆盖base的block[name="title"]的里面的内容
+block标签必须指定name属性来标识当前区块的名称，这个标识在当前模板中应该是唯一的，block标签中可以包含任何模板内容，包括其他标签和变量，例如：
+
+## 例子：
+
+```
+// base.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<block name="title"><title>标题</title></block>
+</head>
+<body>
+	<block name="menu">菜单</block>
+	<block name="left">左边分栏</block>
+	<block name="main">主内容</block>
+	<block name="right">右边分栏</block>
+	<block name="footer">底部</block>
+</body>
+</html>
+```
+
+```
+// index.html
+<extend name="base" />
+<block name="title">
+	<title>{$data.title}</title>
+</block>
+<block name="menu">
+	<a href="/">首页</a>
+	<a href="/info/">资讯</a>
+	<a href="/bbs/">论坛</a>
+</block>
+<block name="left"></block>
+<block name="content">
+	<volist name="list" id="vo">
+		<a href="/new/{$vo.id}">{$vo.title}</a><br/> {$vo.content}
+	</volist>
+</block>
+<block name="right">
+	最新资讯：
+	<volist name="news" id="new">
+		<a href="/new/{$new.id}">{$new.title}</a><br/>
+	</volist>
+</block>
+<block name="footer">
+	@ThinkPHP2012 版权所有
+</block>
+```
+
+可以看到，子模板中使用了extend标签定义需要继承的模板，extend标签的用法和include标签一样，你也可以加载其他模板：
+`<extend name="Public:base" />`
+或者使用绝对文件路径加载
+`<extend name="./Template/Public/base.html" />`
+
+# 使用模版表达式
+模版表达式的定义规则为：模块@主题/控制器/操作,例如：
+```
+<include file="Public/header" /> // 包含头部模版header
+<include file="Public/menu" /> // 包含菜单模版menu
+<include file="Blue/Public/menu" /> // 包含blue主题下面的menu模版
+```
+可以一次包含多个模版，例如：
+```
+<include file="Public/header,Public/menu" />
+```
+
+> 注意，包含模版文件并不会自动调用控制器的方法，也就是说包含的其他模版文件中的变量赋值需要在当前操作中完成。
+
+## 使用模版文件
+
+可以直接包含一个模版文件名（包含完整路径），例如：
+
+```
+<include file="./Application/Home/View/default/Public/header.html" />
+```
+
+## 传入参数
+
+无论你使用什么方式包含外部模板，Include标签支持在包含文件的同时传入参数，例如，下面的例子我们在包含header模板的时候传入了title和keywords变量：
+
+```
+<include file="Public/header" title="ThinkPHP框架" keywords="开源WEB开发框架" />
+```
+
+就可以在包含的header.html文件里面使用title和keywords变量，如下：
+
+```
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>[title]</title>
+<meta name="keywords" content="[keywords]" />
+</head>
+```
+
+# 修改定界符
+默认的定界符用{}，比如{$name}可以输出$name
+修改定界符：
+```
+TMPL_L_DELIM //模板引擎普通标签开始标记
+TMPL_R_DELIM //模板引擎普通标签结束标记
+```
+
+eg:
+```
+'TMPL_L_DELIM' => '<{',
+'TMPL_R_DELIM' => '}>'
+```
+
+普通标签的定界符就被修改了，原来的 `{$name}` 和 `{$vo.name}` 必须使用 `<{$name}>` 和`<{$vo.name}>` 才能生效了。

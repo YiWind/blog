@@ -1,125 +1,164 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="UTF-8" />
-		<title>Document</title>
-		<link rel="stylesheet" href="css/sui.min.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<script src="js/jquery.min.js"></script>
-		<script src="js/sui.min.js"></script>
-	</head>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Document</title>
+	<link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script src="js/jquery.min.js"></script>
+	<script src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+	<script src="./js/showdown.min.js"></script>
+	<script src="./ueditor/ueditor.config.js"></script>
+	<script src="./ueditor/ueditor.all.js"></script>
+</head>
 
-	<body>
-		<div class="page">
-			<div class="sui-navbar navbar-inverse navbar-fixed-top">
-				<div class="navbar-inner">
-					<div class="sui-container"><a href="./index.html" class="sui-brand">Admin</a>
-						<ul class="sui-nav">
-							<li class="active"><a href="#">控制台</a></li>
+<body>
+<div class="page">
+	<div class="sui-navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="sui-container"><a href="./index.html" class="sui-brand">Admin</a>
+				<ul class="sui-nav">
+					<li class="active"><a href="#">控制台</a></li>
+				</ul>
+				<ul class="sui-nav pull-right">
+					<li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown"
+					                            class="dropdown-toggle">admin</a>
+						<ul role="menu" class="sui-dropdown-menu">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">退出</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
 						</ul>
-						<ul class="sui-nav pull-right">
-							<li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">admin</a>
-								<ul role="menu" class="sui-dropdown-menu">
-									<li role="presentation"><a role="menuitem" tabindex="-1" href="#">退出</a></li>
-									<li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
-								</ul>
-							</li>
-						</ul>
-						<form class="sui-form sui-form pull-right">
-							<input type="text" placeholder="宝贝/店铺名称...">
-							<button class="sui-btn">搜索</button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="content">
-				<div class="main-left">
-					<ul class="sui-nav nav-list">
-						<li class="nav-header">服装</li>
-						<li class="active"><a>阿迪达斯</a></li>
-						<li><a>耐克</a></li>
-						<li><a>匡威</a></li>
-						<li class="nav-header">美食</li>
-						<li><a>湘菜 </a></li>
-						<li><a>自助</a></li>
-						<li><a>日料</a></li>
-					</ul>
-				</div>
-				<div class="main">
-					<ul class="sui-breadcrumb">
-						<li><a href="#">首页</a></li>
-						<li><a href="#">手机数码、电脑办公</a></li>
-						<li class="active">智能手机</li>
-					</ul>
-					<p>表格手册：http://datatables.club/</p>
-					<link rel="stylesheet" href="http://cdn.bootcss.com/datatables/1.10.12/css/jquery.dataTables.min.css" />
-					<script src="http://cdn.bootcss.com/datatables/1.10.12/js/jquery.dataTables.js"></script>
-					<table class="asdasdas">
-						<thead>
-							<tr>
-								<th>＃</th>
-								<th>待付款</th>
-								<th>宝宝数量</th>
-								<th>交易金额</th>
-								<th>操作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>所有交易</td>
-								<td>9999.00</td>
-								<td>999</td>
-								<td>99999.00</td>
-								<td>
-									<a href="#">编辑</a>
-									<a href="#">删除</a>
-								</td>
-							</tr>
-							<tr>
-								<td>待付款</td>
-								<td>9999.00</td>
-								<td>999</td>
-								<td>99999.00</td>
-								<td>
-									<a href="#">编辑</a>
-									<a href="#">删除</a>
-								</td>
-							</tr>
-							<tr>
-								<td>已发货</td>
-								<td>9999.00</td>
-								<td>999</td>
-								<td>99999.00</td>
-								<td>
-									<a href="#">编辑</a>
-									<a href="#">删除</a>
-								</td>
-							</tr>
-							<tr>
-								<td>已成功</td>
-								<td>9999.00</td>
-								<td>999</td>
-								<td>99999.00</td>
-								<td>
-									<a href="#">编辑</a>
-									<a href="#">删除</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-				</div>
+					</li>
+				</ul>
+				<form class="sui-form sui-form pull-right">
+					<input type="text" placeholder="宝贝/店铺名称...">
+					<button class="sui-btn">搜索</button>
+				</form>
 			</div>
 		</div>
-		<script>
-			$(document).ready(function() {
-				$('.asdasdas').DataTable({
-					"info": false, // 控制是否显示左下角的信息
-					"paging": false
-				});
-			});
-		</script>
-	</body>
+	</div>
+	<div class="content">
+		<div class="main-left">
+			<ul class="sui-nav nav-list">
+				<li class="nav-header">服装</li>
+				<li class="active"><a>阿迪达斯</a></li>
+				<li><a>耐克</a></li>
+				<li><a>匡威</a></li>
+				<li class="nav-header">美食</li>
+				<li><a>湘菜 </a></li>
+				<li><a>自助</a></li>
+				<li><a>日料</a></li>
+			</ul>
+		</div>
+		<div class="main">
+			<ul class="sui-breadcrumb">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">手机数码、电脑办公</a></li>
+				<li class="active">智能手机</li>
+			</ul>
+			<div class="main-content">
+				<form class="sui-form form-horizontal" action="" method="">
+					<div class="control-group">
+						<label class="control-label v-top"><b style="color: #f00;">*</b>
+							<span style="padding: 0 2em 0 0 ;">地</span>点：
+						</label>
+						<input type="text" value="" class="input-xlarge">
+						<div class="controls">
+							<div class="sui-msg msg-error msg-clear help-block">
+								<div class="msg-con">该项为必填项</div>
+								<s class="msg-icon"></s>
+							</div>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label v-top"><b style="color: #f00;">*</b>
+							<span style="padding: 0 2em 0 0 ;">标</span>签：
+						</label>
+						<input type="text" value="" class="input-xlarge">
+						<div class="controls">
+							<div class="sui-msg msg-error msg-clear help-block">
+								<div class="msg-con">该项为必填项</div>
+								<s class="msg-icon"></s>
+							</div>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label v-top">
+							<span style="padding: 0 .5em 0 0 ;">浏</span><span style="padding: 0 .5em 0 0 ;">览</span>量：
+						</label>
+						<input type="text" value="" class="input-xlarge">
+						<div class="controls">
+							<div class="sui-msg msg-error msg-clear help-block">
+								<div class="msg-con">格式错误，应该为数字</div>
+								<s class="msg-icon"></s>
+							</div>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label v-top">
+							<span style="padding: 0 .5em 0 0 ;">点</span><span style="padding: 0 .5em 0 0 ;">赞</span>数：
+						</label>
+						<input type="text" value="" class="input-xlarge">
+						<div class="controls">
+							<div class="sui-msg msg-error msg-clear help-block">
+								<div class="msg-con">格式错误，应该为数字</div>
+								<s class="msg-icon"></s>
+							</div>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label v-top">
+							<span style="padding: 0 .5em 0 0 ;">评</span><span style="padding: 0 .5em 0 0 ;">论</span>数：
+						</label>
+						<span class="input-xlarge uneditable-input">0</span>
+					</div>
+					<div class="control-group">
+						<label class="control-label v-top">
+							<span style="padding: 0 2em 0 0 ;">概</span>要：
+						</label>
+						<textarea id="summary" placeholder="概要">概要</textarea>
+					</div>
+					<div class="control-group">
+						<label class="control-label v-top">
+							<span style="padding: 0 2em 0 0 ;">内</span>容：
+						</label>
+						<textarea id="content">内容</textarea>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+//	var converter = new showdown.Converter();
+//	function a(obj) {
+//		var _this = obj;
+//		console.log(_this.id)
+//		return
+//		var text = _this.value;
+//		var html = converter.makeHtml(text);
+//		return html;
+//	}
+////	var html = converter.makeHtml();
+//	console.log(a())
+var ueSummary = UE.getEditor('summary', {
+	autoHeight: true
+});
+var ueContent = UE.getEditor('content');
+//ueSummary.ready(function() {
+//	//设置编辑器的内容
+////	ueSummary.setContent('hello');
+////	//获取html内容，返回: <p>hello</p>
+////	var html = ueSummary.getContent();
+////	//获取纯文本内容，返回: hello
+////	var txt = ueSummary.getContentTxt();
+////	console.log(html)
+////	console.log(txt)
+//	document.querySelector("#summary").addEventListener('keyup', function() {
+//		var html = ueSummary.getContent();
+//	})
+//});
+</script>
+</body>
 
 </html>

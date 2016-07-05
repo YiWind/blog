@@ -1,5 +1,7 @@
 <?php
 return array(
 	//'配置项'=>'配置值'
-	'TMPL_PARSE_STRING' => array(),
+	'TMPL_PARSE_STRING' =>array(
+		'__STATIC__' => '/Apps/Template/Home/static',
+	)
 );
