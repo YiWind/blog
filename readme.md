@@ -681,3 +681,5 @@ eg:
 ```
 
 普通标签的定界符就被修改了，原来的 `{$name}` 和 `{$vo.name}` 必须使用 `<{$name}>` 和`<{$vo.name}>` 才能生效了。
+
+# 使用wangEditor 富文本编辑器 [地址](http://www.kancloud.cn/)
