@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
+Source Server         : 本地测试环境
 Source Server Version : 50542
 Source Host           : localhost:3306
 Source Database       : test
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50542
 File Encoding         : 65001
 
-Date: 2016-07-05 19:39:33
+Date: 2016-07-07 08:05:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,6 @@ CREATE TABLE `article` (
   `tags` varchar(2048) NOT NULL DEFAULT '1',
   `views` int(11) unsigned DEFAULT '0',
   `likes` int(11) unsigned DEFAULT '0',
-  `chats` int(11) DEFAULT '0',
   `is_delete` tinyint(1) NOT NULL DEFAULT '0',
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
