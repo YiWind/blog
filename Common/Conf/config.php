@@ -7,7 +7,6 @@ return array(
 	'URL_CASE_INSENSITIVE' => true, // url大小写不敏感
 	'URL_HTML_SUFFIX' => 'html|shtml|php',
 	// 'URL_DENY_SUFFIX' => 'pdf|ico|png|gif|jpg', // URL禁止访问的后缀设置
-	'TMPL_TEMPLATE_SUFFIX' => '.php',
 	'DB_TYPE' => 'mysql',
 	'DB_HOST' => '127.0.0.1', // 服务器地址
 	'DB_NAME' => 'test', // 数据库名
