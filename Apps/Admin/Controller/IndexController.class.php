@@ -17,6 +17,23 @@ class IndexController extends CommonController
 
 	public function update()
 	{
+		$id = I('get.id');
+		$isDelete = I('get.delete');
+		$isSubmit = I('get.submit');
+		$Article = D('Article');
+		if ($isDelete && $id) {
+			// 删除
+			$data['id'] = $id;
+			$data['is_delete'] = $isDelete;
+			$Article->where("id = " . $id)->create($data);
+			$Article->save();
+			$this->redirect('Index/index');
+		}
+		if ($id) {
+			// 编辑
+			$Article->where("id = " . $id)->find();
+			$this->assign('article', $Article);
+		}
 		$this->display();
 	}
 }
