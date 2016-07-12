@@ -21,6 +21,13 @@ class IndexController extends CommonController
 		$isDelete = I('get.delete');
 		$isSubmit = I('get.submit');
 		$Article = D('Article');
+		if ($isSubmit) {
+			// 提交了，获取数据
+			echo '<pre>';
+			var_dump(I('post.vars'));
+			echo '</pre>';
+			exit;
+		}
 		if ($isDelete && $id) {
 			// 删除
 			$data['id'] = $id;
@@ -36,4 +43,5 @@ class IndexController extends CommonController
 		}
 		$this->display();
 	}
+
 }
