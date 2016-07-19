@@ -1,0 +1,8 @@
+<div class="col-sm-3 col-md-2 sidebar">
+	<if condition="($article eq 1) OR ($articleCategoryList eq 1)">
+		<ul class="nav nav-sidebar">
+			<li <if condition="$article eq 1">class="active"</if>><a href="<{:U('Article/dolist')}>">文章列表 <span class="sr-only">(current)</span></a></li>
+			<li <if condition="$articleCategoryList eq 1">class="active"</if>><a href="<{:U('Article/category')}>">文章分类管理列表</a></li>
+		</ul>
+	</if>
+</div>

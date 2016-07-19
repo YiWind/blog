@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/jquery.dataTables.css">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+			        aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">后台管理系统</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">文章管理</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+					   aria-expanded="false">admin<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">退出</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="#">文章列表 <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">文章分类管理</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<ol class="breadcrumb">
+				<li><a href="#">文章管理</a></li>
+				<li class="active">文章管理列表</li>
+			</ol>
+			<table class="infos">
+				<thead>
+				<tr>
+					<th>id</th>
+					<th>标题</th>
+					<th>点击数</th>
+					<th>点赞数</th>
+					<th>创建时间</th>
+					<th>更新时间</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>id</td>
+					<td>标题</td>
+					<td>点击数</td>
+					<td>点赞数</td>
+					<td>创建时间</td>
+					<td>更新时间</td>
+					<td>
+						<a href="#">编辑</a>
+						<a href="#"
+						   onclick="if(confirm('确定要删除此信息吗？')){alert('删除成功！');return true;}return false;">删除</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<div>
+				<a href="#"><button type="button" class="btn btn-success">新建</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+		$('.infos').DataTable({
+			"language": {
+				"lengthMenu": "每页 _MENU_ 条记录",
+				"zeroRecords": "没有找到记录",
+				"info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+				"infoEmpty": "无记录",
+				"infoFiltered": "(从 _MAX_ 条记录过滤)",
+				"search": "查找:",
+				"paginate": {
+					"first": "第一页",
+					"last": "最后一页",
+					"next": "下一页",
+					"previous": "上一页"
+				}
+			}
+		});
+	});
+</script>
+</body>
+</html>

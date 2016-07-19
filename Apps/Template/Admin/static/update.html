@@ -1,163 +1,88 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Document</title>
-    <link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css"/>
-    <link rel="stylesheet" href="./wang-editor/wangEditor.min.css">
-    <link rel="stylesheet" href="css/style.css"/>
-    <script src="js/jquery.min.js"></script>
-    <script src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
-    <script src="./js/showdown.min.js"></script>
-    <script src="./wang-editor/wangEditor.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./ueditor/ueditor.config.js"></script>
+	<script src="./ueditor/ueditor.all.min.js"></script>
 </head>
-
 <body>
-<div class="page">
-    <div class="sui-navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="sui-container"><a href="./index.html" class="sui-brand">Admin</a>
-                <ul class="sui-nav">
-                    <li class="active"><a href="#">控制台</a></li>
-                </ul>
-                <ul class="sui-nav pull-right">
-                    <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown"
-                                                class="dropdown-toggle">admin</a>
-                        <ul role="menu" class="sui-dropdown-menu">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">退出</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="sui-form sui-form pull-right">
-                    <input type="text" placeholder="宝贝/店铺名称...">
-                    <button class="sui-btn">搜索</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="main-left">
-            <ul class="sui-nav nav-list">
-                <li class="nav-header">服装</li>
-                <li class="active"><a>阿迪达斯</a></li>
-                <li><a>耐克</a></li>
-                <li><a>匡威</a></li>
-                <li class="nav-header">美食</li>
-                <li><a>湘菜 </a></li>
-                <li><a>自助</a></li>
-                <li><a>日料</a></li>
-            </ul>
-        </div>
-        <div class="main">
-            <ul class="sui-breadcrumb">
-                <li><a href="#">首页</a></li>
-                <li><a href="#">手机数码、电脑办公</a></li>
-                <li class="active">智能手机</li>
-            </ul>
-            <div class="main-content">
-                <form class="sui-form form-horizontal" action="?issubmit=1" method="post">
-                    <div class="control-group">
-                        <label class="control-label v-top"><b style="color: #f00;">*</b>
-                            <span style="padding: 0 2em 0 0 ;">地</span>点：
-                        </label>
-                        <input type="text" value="" class="input-xlarge">
-                        <div class="controls">
-                            <div class="sui-msg msg-error msg-clear help-block">
-                                <div class="msg-con">该项为必填项</div>
-                                <s class="msg-icon"></s>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label v-top"><b style="color: #f00;">*</b>
-                            <span style="padding: 0 2em 0 0 ;">标</span>签：
-                        </label>
-                        <input type="text" value="" class="input-xlarge">
-                        <div class="controls">
-                            <div class="sui-msg msg-error msg-clear help-block">
-                                <div class="msg-con">该项为必填项</div>
-                                <s class="msg-icon"></s>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label v-top">
-                            <span style="padding: 0 .5em 0 0 ;">浏</span><span style="padding: 0 .5em 0 0 ;">览</span>量：
-                        </label>
-                        <input type="text" value="" class="input-xlarge">
-                        <div class="controls">
-                            <div class="sui-msg msg-error msg-clear help-block">
-                                <div class="msg-con">格式错误，应该为数字</div>
-                                <s class="msg-icon"></s>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label v-top">
-                            <span style="padding: 0 .5em 0 0 ;">点</span><span style="padding: 0 .5em 0 0 ;">赞</span>数：
-                        </label>
-                        <input type="text" value="" class="input-xlarge">
-                        <div class="controls">
-                            <div class="sui-msg msg-error msg-clear help-block">
-                                <div class="msg-con">格式错误，应该为数字</div>
-                                <s class="msg-icon"></s>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label v-top">
-                            <span style="padding: 0 .5em 0 0 ;">评</span><span style="padding: 0 .5em 0 0 ;">论</span>数：
-                        </label>
-                        <span class="input-xlarge uneditable-input">0</span>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label v-top">
-                            <span style="padding: 0 2em 0 0 ;">概</span>要：
-                        </label>
-                        <div class="controls">
-                            <textarea id="summary" style="height:300px">请输入内容</textarea>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label v-top">
-                            <span style="padding: 0 2em 0 0 ;">内</span>容：
-                        </label>
-                        <div class="controls">
-                            <textarea id="content" style="height:300px">请输入内容</textarea>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label v-top">
-                            <span style="padding: 0 2em 0 0 ;">操</span>作：
-                        </label>
-                        <div class="controls">
-                            <input type="submit" class="sui-btn btn-xlarge btn-primary" value="提交">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+			        aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">后台管理系统</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">文章管理</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+					   aria-expanded="false">admin<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">退出</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li class="active"><a href="#">文章列表 <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">文章分类管理</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<ol class="breadcrumb">
+				<li><a href="#">文章管理</a></li>
+				<li class="active">文章管理详情</li>
+			</ol>
+			<form>
+				<div class="form-group">
+					<label for="title">标题</label>
+					<input type="email" class="form-control" id="title" placeholder="标题">
+				</div>
+				<div class="form-group">
+					<label>标签</label>
+					<div class="checkbox">
+						<label><input type="checkbox">javascript</label>
+						<label><input type="checkbox">php</label>
+						<label><input type="checkbox">css</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="summary">概述</label>
+					<textarea id="summary" name="summary">这里写你的初始化内容</textarea>
+				</div>
+				<div class="form-group">
+					<label for="content">内容</label>
+					<textarea id="content" name="content">这里写你的初始化内容</textarea>
+				</div>
+				<input type="submit" class="btn btn-default">
+			</form>
+		</div>
+	</div>
 </div>
-<script>
-    var summary = new wangEditor('summary');
-    var content = new wangEditor('content');
-    summary.config.menus = $.map(wangEditor.config.menus, function (item, key) {
-        if (item === 'location') {
-            return null;
-        }
-        return item
-    });
-    content.config.menus = $.map(wangEditor.config.menus, function (item, key) {
-        if (item === 'location') {
-            return null;
-        }
-        return item
-    });
-    summary.create();
-    content.create();
+<script type="text/javascript">
+	var summary = UE.getEditor('summary');
+	var content = UE.getEditor('content');
 </script>
 </body>
 </html>

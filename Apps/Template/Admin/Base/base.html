@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<block name="head"></block>
+<body>
+<include file="base/top"/>
+<div class="container-fluid">
+	<div class="row">
+		<include file="base/left"/>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<include file="base/breadcrumb"/>
+			<block name="main"></block>
+		</div>
+	</div>
+</div>
+<block name="script"></block>
+</body>
+</html>

@@ -1,6 +1,8 @@
 <?php
 return array(
 	"URL_MODEL" => 2,
+	'TMPL_l_DELIM'=>'<{', //修改左定界符
+	'TMPL_R_DELIM'=>'}>', //修改右定界符
 	"SESSION_AUTO_START" => true,
 	'TMPL_STRIP_SPACE' => true, // 是否去除模板文件里面的html空格与换行
 	'SHOW_PAGE_TRACE' => true,

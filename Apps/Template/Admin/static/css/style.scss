@@ -1,43 +1,47 @@
-@import "../fonts/iconfont.css", "variable", "extend", "mixin";
-.page {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    .sui-navbar {
-        & + .content {
-            padding-top: 40px;
-        }
-    }
-    .content {
-        &>.main-left {
-            top: 40px;
-        }
-    }
+.navbar-default {
+	& + .container-fluid {
+		margin-top: 51px;
+	}
 }
-.main-left {
-    left: 0;
-    bottom: 0;
-    top: 40px;
-    position: fixed;
-    width: 150px;
-    overflow: auto;
-    &::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 1px;
-        background-color: #f0f0f0;
-    }
-}
-.main {
-    margin-left: 150px;
-    padding: 10px;
-}
-.main-content {
 
+.sidebar {
+	display: none;
+	@media (min-width: 768px) {
+		position: fixed;
+		top: 51px;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		display: block;
+		padding: 20px;
+		overflow-x: hidden;
+		overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+		background-color: #f5f5f5;
+		border-right: 1px solid #eee;
+	}
+}
+
+.nav-sidebar {
+	margin-right: -21px;
+	margin-bottom: 20px;
+	margin-left: -20px;
+	li {
+		a {
+			padding-right: 20px;
+			padding-left: 20px;
+			&.active {
+				&:hover,
+				&:focus {
+					color: #fff;
+					background-color: #428bca;
+				}
+			}
+		}
+		&.active {
+			a {
+				background-color: #428bca;
+				color: #ffffff;
+			}
+		}
+	}
 }
