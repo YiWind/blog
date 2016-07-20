@@ -3,6 +3,7 @@ namespace Admin\Model;
 
 use Think\Model;
 
-class UserModel extends CommonModel
+class TagsModel extends CommonModel
 {
+
 }

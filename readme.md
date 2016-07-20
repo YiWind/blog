@@ -18,7 +18,7 @@ Application 默认应用目录（可以设置）
 │ ... 更多分层目录可选
 │ └─View 视图目录
 ```
- # 读取配置项
+# 读取配置项
 每个模块会自动加载自己的配置文件（位于 Application/当前模块名/Conf/config.php ）。
 ```
 $model = C("URL_MODEL);

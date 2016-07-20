@@ -1,0 +1,72 @@
+<extend name="Base:base"/>
+<block name="head">
+	<head>
+		<meta charset="UTF-8">
+		<title>标签管理</title>
+		<link rel="stylesheet" href="__STATIC__/css/bootstrap.min.css">
+		<link rel="stylesheet" href="__STATIC__/css/style.css">
+		<link rel="stylesheet" href="__STATIC__/css/jquery.dataTables.css">
+		<script src="__STATIC__/js/jquery.min.js"></script>
+		<script src="__STATIC__/js/bootstrap.min.js"></script>
+		<script src="__STATIC__/js/jquery.dataTables.min.js"></script>
+	</head>
+</block>
+<block name="breadcrumb">
+	<ol class="breadcrumb">
+		<li><a href="{:U('Tags/dolist')}">标签管理</a></li>
+		<li class="active">标签管理列表</li>
+	</ol>
+</block>
+<block name="main">
+	<table class="infos">
+		<thead>
+		<tr>
+			<th>id</th>
+			<th>标签名</th>
+			<th>创建时间</th>
+			<th>更新时间</th>
+			<th>操作</th>
+		</tr>
+		</thead>
+		<tbody>
+		<volist name="tagsList" id="data">
+			<tr>
+				<td>{$data['id']}</td>
+				<td>{$data['name']}</td>
+				<td>{:date('Y/m/m H:i:s',$data['create_time'])}</td>
+				<td>{:date('Y/m/m H:i:s',$data['update_time'])}</td>
+				<td><a href="{:U('Tags/update', array('id'=>$data['id']))}">编辑</a>
+					<a href="{:U('Tags/update', array('id'=>$data['id'],'isdelete'=>1,'issubmit'=>1))}"
+					   onclick="if(confirm('确定要删除此信息吗？')){alert('删除成功！');return true;}return false;">删除</a></td>
+			</tr>
+		</volist>
+		</tbody>
+	</table>
+	<div>
+		<a href="{:U('Tags/update')}">
+			<button type="button" class="btn btn-success">新建</button>
+		</a>
+	</div>
+</block>
+<block name="script">
+	<script>
+		$(function () {
+			$('.infos').DataTable({
+				"language": {
+					"lengthMenu": "每页 _MENU_ 条记录",
+					"zeroRecords": "没有找到记录",
+					"info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+					"infoEmpty": "无记录",
+					"infoFiltered": "(从 _MAX_ 条记录过滤)",
+					"search": "查找:",
+					"paginate": {
+						"first": "第一页",
+						"last": "最后一页",
+						"next": "下一页",
+						"previous": "上一页"
+					}
+				}
+			});
+		});
+	</script>
+</block>

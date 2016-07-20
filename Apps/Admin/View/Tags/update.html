@@ -1,0 +1,27 @@
+<extend name="Base:base"/>
+<block name="head">
+	<head>
+		<meta charset="UTF-8">
+		<title>标签管理详情</title>
+		<link rel="stylesheet" href="__STATIC__/css/bootstrap.min.css">
+		<link rel="stylesheet" href="__STATIC__/css/style.css">
+		<script src="__STATIC__/js/jquery.min.js"></script>
+		<script src="__STATIC__/js/bootstrap.min.js"></script>
+	</head>
+</block>
+<block name="breadcrumb">
+	<ol class="breadcrumb">
+		<li><a href="{:U('Tags/dolist')}">标签管理</a></li>
+		<li class="active">标签管理详情</li>
+	</ol>
+</block>
+<block name="main">
+	<form action="?issubmit=1" method="post">
+		<div class="form-group">
+			<label for="name">标题</label>
+			<input type="text" class="form-control" id="title" placeholder="标题" name="name"
+			       value="{$tags->name}">
+		</div>
+		<input type="submit" class="btn btn-default">
+	</form>
+</block>

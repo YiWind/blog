@@ -1,6 +1,9 @@
 <?php
 namespace Admin\Model;
+
 use Think\Model;
-class ArticleModel extends CommonModel {
-	
+
+class ArticleModel extends CommonModel
+{
+
 }

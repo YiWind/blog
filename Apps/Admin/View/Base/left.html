@@ -1,0 +1,8 @@
+<div class="col-sm-3 col-md-2 sidebar">
+	<php>if($navType=='article' || $navType=='tags'){</php>
+	<ul class="nav nav-sidebar">
+		<li class="{$navLeft=='article'?'active':''}"><a href="{:U('Article/dolist')}">文章列表 <span class="sr-only">(current)</span></a></li>
+		<li class="{$navLeft=='tags'?'active':''}"><a href="{:U('Tags/dolist')}">文章分类管理列表</a></li>
+	</ul>
+	<php>}</php>
+</div>

@@ -7,7 +7,10 @@ class EmptyController extends Controller
 {
 	public function _empty($name)
 	{
-		//
-		$this->show("no Controller: " . CONTROLLER_NAME . " and used function: " . $name);
+		// **MODULE_NAME**当前模块名
+		// **CONTROLLER_NAME**当前控制器名
+		// **ACTION_NAME**当前方法名
+//		$this->show("当前调用的是空控制器：" . CONTROLLER_NAME . "控制器。使用的是：" . $name . "方法。");
+		$this->display("Base/404");
 	}
 }

@@ -1,0 +1,65 @@
+<extend name="Base:base"/>
+<block name="head">
+	<head>
+		<meta charset="UTF-8">
+		<title>文章详情</title>
+		<link rel="stylesheet" href="__STATIC__/css/bootstrap.min.css">
+		<link rel="stylesheet" href="__STATIC__/css/style.css">
+		<script src="__STATIC__/js/jquery.min.js"></script>
+		<script src="__STATIC__/js/bootstrap.min.js"></script>
+		<script src="__STATIC__/ueditor/ueditor.config.js"></script>
+		<script src="__STATIC__/ueditor/ueditor.all.min.js"></script>
+	</head>
+</block>
+<block name="breadcrumb">
+	<ol class="breadcrumb">
+		<li><a href="{:U('Article/dolist')}">文章管理</a></li>
+		<li class="active">文章详情</li>
+	</ol>
+</block>
+<block name="main">
+	<form action="?issubmit=1" method="post">
+		<div class="form-group">
+			<label for="title">标题</label>
+			<input type="text" class="form-control" id="title" placeholder="标题" name="title"
+			       value="{$article->title}">
+		</div>
+		<div class="form-group">
+			<label for="views">浏览量</label>
+			<input type="text" class="form-control" id="views" placeholder="浏览量" name="views"
+			       value="{$article->views}">
+		</div>
+		<div class="form-group">
+			<label for="likes">点赞数</label>
+			<input type="text" class="form-control" id="likes" placeholder="点赞数" name="likes"
+			       value="{$article->likes}">
+		</div>
+		<div class="form-group">
+			<label>标签</label>
+			<div class="checkbox">
+				<foreach name="tagsList" item="aitem" key="akey">
+					<php>if(in_array($aitem['id'],$articleTags)){</php>
+					<label><input type="checkbox" name="tags[]" value="{$aitem['id']}" checked>{$aitem['name']}</label>
+					<php>}else{</php>
+					<label><input type="checkbox" name="tags[]" value="{$aitem['id']}">{$aitem['name']}</label>
+					<php>}</php>
+				</foreach>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="summary">概述</label>
+			<textarea id="summary" name="summary">{$article->summary}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="content">内容</label>
+			<textarea id="content" name="content">{$article->content}</textarea>
+		</div>
+		<input type="submit" class="btn btn-default">
+	</form>
+</block>
+<block name="script">
+	<script type="text/javascript">
+		var summary = UE.getEditor('summary');
+		var content = UE.getEditor('content');
+	</script>
+</block>
