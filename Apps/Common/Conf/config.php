@@ -18,4 +18,6 @@ return array(
 	'DB_PREFIX' => 'blog_', // 数据库表前缀
 	'DB_CHARSET' => 'utf8', // 字符集
 	'DB_DEBUG' => TRUE, // 数据库调试模式 开启后可以记录SQL日志 3.2.3新增
+	'MODULE_ALLOW_LIST' => array('Home', 'Admin'), // 定义允许访问的木块
+	'DEFAULT_MODULE' => 'Home', // 当访问的模块不存在时，路由到默认模块下的控制器中，因为这个模块中有空方法或者空控制器，所以就起到了空模块的作用
 );

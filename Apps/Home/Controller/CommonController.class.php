@@ -7,7 +7,7 @@ class CommonController extends Controller
 {
 	function _empty($name)
 	{
-		$this->display('Base/404');
+		$this->display('Base:404');
 	}
 
 //	function _initialize()

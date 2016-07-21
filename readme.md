@@ -689,6 +689,7 @@ eg:
 
 
 # 填过的一些坑
+## 调用文件
 ```
 View
 |-- Base
@@ -699,3 +700,27 @@ View
 ```
  - 模板正确的`<include file="" />`的方式是斜杠,eg:`<include file="Base/top"/>`
  - 控制器正确的调用404文件的方法是$this->display('Base:404');exit;不exit之后的代码仍然会执行。除非是重定向`$this->redirect()`;
+
+## 空模块
+```
+'MODULE_ALLOW_LIST' => array('Home', 'Admin'), // 定义允许访问的木块
+'DEFAULT_MODULE' => 'Home', // 当访问的模块不存在时，路由到默认模块下的控制器中，因为这个模块中有空方法或者空控制器，所以就起到了空模块的作用
+```
+配置空控制器
+```
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+
+// 空控制器和空方法
+class EmptyController extends Controller
+{
+	public function _empty($name)
+	{
+		// **CONTROLLER_NAME**当前控制器名
+		$this->display("Base:404");
+//		$this->show("当前调用的是空控制器：" . CONTROLLER_NAME . "控制器。使用的是：" . $name . "方法。");
+	}
+}
+```
