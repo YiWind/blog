@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50542
 File Encoding         : 65001
 
-Date: 2016-07-20 18:04:47
+Date: 2016-07-21 14:53:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,14 +24,14 @@ CREATE TABLE `blog_article` (
   `title` varchar(255) NOT NULL,
   `summary` text,
   `content` longtext,
-  `tags` varchar(2048) NOT NULL DEFAULT '1',
+  `tags` varchar(2048) DEFAULT '0',
   `views` int(11) unsigned DEFAULT '0',
   `likes` int(11) unsigned DEFAULT '0',
   `is_delete` tinyint(1) NOT NULL DEFAULT '0',
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=118 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blog_article
@@ -47,7 +47,7 @@ CREATE TABLE `blog_tags` (
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blog_tags

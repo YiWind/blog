@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
+	<title>首页</title>
+	<link rel="stylesheet" href="__STATIC__/css/style.css">
+	<link rel="stylesheet" href="__STATIC__/css/markdown-github-css-diy.css">
+	<script src="__STATIC__/js/jquery.min.js"></script>
+	<script src="__STATIC__/js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="pc">
+	<div class="main">
+		<header class="main-header">
+			<div class="logo">luckhuazi</div>
+			<div class="summary">
+				<block name="summary">专注于前端开发与程序拓展的技术博客</block>
+			</div>
+			<div class="sarea">
+				<input type="text" class="sbar"/>
+				<input type="button" value="SEARCH" class="sbtn"/>
+			</div>
+		</header>
+	</div>
+	<div class="main" style="margin-bottom: 10px;">
+		<nav class="main-navbar">
+			<include file="base:navpc"/>
+		</nav>
+	</div>
+</div>
+<div class="main">
+	<block name="breadcrumb">
+		<ul class="ui-breadcrumb">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">手机数码、电脑办公</a></li>
+			<li class="active">智能手机</li>
+		</ul>
+	</block>
+</div>
+<div class="mb">
+	<div class="main-header-res">
+		<div class="logo">FRONTOPEN</div>
+		<block name="summary">
+			<div class="summary">专注于前端开发与程序拓展的技术博客</div>
+		</block>
+		<div class="sarea">
+			<input type="text" class="sbar">
+			<input type="button" value="SEARCH" class="sbtn">
+		</div>
+	</div>
+	<nav class="main-navbar-res">
+		<div class="header" id="togglenav">
+			网站导航
+			<span class="iconfont icon-31liebiao"></span>
+		</div>
+		<include file="base:navres"/>
+	</nav>
+</div>
+<div class="main">
+	<div class="main-container">
+		<div class="col-main">
+			<div class="artivel-list">
+				<block name="article">
+					<article class="item">
+						<header>
+							<div class="title">
+								<a href="detail.html">[转]PHP获取服务器详细信息的原生方法</a>
+							</div>
+							<div class="taglist">
+								<a href="#" class="tag">
+									<span class="iconfont icon-yonghu"></span>
+									luke
+								</a>
+								<a class="tag">
+									<span class="iconfont icon-yanjing"></span>
+									围观1991次
+								</a>
+								<a class="tag">
+									<span class="iconfont icon-naozhong"></span>
+									发布：2016/06/23 14:44:51
+								</a>
+							</div>
+						</header>
+						<section class="content">
+							<div class="markdown-body">
+								<h1>asd</h1>
+								<p>1sada</p>
+							</div>
+
+						</section>
+					</article>
+				</block>
+				<block name="page"></block>
+			</div>
+		</div>
+		<div class="sidebar-second">
+			<section class="right-nav">
+				<header><span>推荐阅读</span></header>
+				<ul>
+					<li><a href="#">html+css+div</a></li>
+				</ul>
+			</section>
+			<include file="Base:tags" />
+		</div>
+	</div>
+</div>
+<footer class="main-footer">
+	Copyright © 2016 luckhuazi. All rights reserved.
+</footer>
+<script>
+	$("#togglenav").click(function () {
+		$("#tnav").stop().toggle(200)
+	});
+</script>
+</body>
+</html>

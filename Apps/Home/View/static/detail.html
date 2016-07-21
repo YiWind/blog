@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
+	<title>详情</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/markdown-github-css-diy.css">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="pc">
+	<div class="main">
+		<header class="main-header">
+			<div class="logo">luckhuazi</div>
+			<div class="summary">世界上没有奇迹，只有必然和偶然</div>
+			<div class="sarea">
+				<input type="text" class="sbar"/>
+				<input type="button" value="SEARCH" class="sbtn"/>
+			</div>
+		</header>
+	</div>
+	<div class="main" style="margin-bottom: 10px;">
+		<nav class="main-navbar">
+			<ul class="level1">
+				<li>
+					<a href="#">首页</a>
+					<ul class="level2">
+						<li><a href="#">frontopen文档归类</a></li>
+						<li><a href="#">frontopen文档归类</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">web前端开发</a>
+				</li>
+				<li><a href="#">技术资源分享</a>
+					<ul class="level2">
+						<li><a href="#">jQuery源码分享</a></li>
+					</ul>
+				</li>
+				<li><a href="#">移动设备开发</a></li>
+				<li><a href="#">程序开发</a></li>
+				<li><a href="#">相关文档</a></li>
+				<li><a href="#">素材</a></li>
+				<li><a href="#">合作站点</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<div class="main">
+	<ul class="ui-breadcrumb">
+		<li><a href="#">首页</a></li>
+		<li><a href="#">手机数码、电脑办公</a></li>
+		<li class="active">智能手机</li>
+	</ul>
+</div>
+<div class="mb">
+	<div class="main-header-res">
+		<div class="logo">FRONTOPEN</div>
+		<div class="summary">专注于前端开发与程序拓展的技术博客</div>
+		<div class="sarea">
+			<input type="text" class="sbar">
+			<input type="button" value="SEARCH" class="sbtn">
+		</div>
+	</div>
+	<nav class="main-navbar-res">
+		<div class="header" id="togglenav">
+			网站导航
+			<span class="iconfont icon-31liebiao"></span>
+		</div>
+		<ul class="level1" id="tnav">
+			<li>
+				<a href="#">首页</a>
+				<ul class="level2">
+					<li><a href="#">frontopen文档归类</a></li>
+					<li><a href="#">frontopen文档归类</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">web前端开发</a>
+			</li>
+			<li><a href="#">技术资源分享</a>
+				<ul class="level2">
+					<li><a href="#">jQuery源码分享</a></li>
+				</ul>
+			</li>
+			<li><a href="#">移动设备开发</a></li>
+			<li><a href="#">程序开发</a></li>
+			<li><a href="#">相关文档</a></li>
+			<li><a href="#">素材</a></li>
+			<li><a href="#">合作站点</a></li>
+		</ul>
+	</nav>
+</div>
+<div class="main">
+	<div class="main-container">
+		<div class="col-main">
+			<div class="artivel-list">
+				<article class="item">
+					<header>
+						<div class="title">
+							<a>[转]PHP获取服务器详细信息的原生方法</a>
+						</div>
+						<div class="taglist">
+							<a class="tag">
+								<span class="iconfont icon-yonghu"></span>
+								luke
+							</a>
+							<a class="tag">
+								<span class="iconfont icon-yanjing"></span>
+								围观1991次
+							</a>
+							<a class="tag">
+								<span class="iconfont icon-naozhong"></span>
+								发布：2016/06/23 14:44:51
+							</a>
+						</div>
+					</header>
+					<section class="content">
+						<div class="markdown-body">
+							<h1>asd</h1>
+							<p>1sada</p>
+						</div>
+						<div class="siblings-article">
+							<a href="#" class="pre">上一篇<span class="tit">：aaa</span></a>
+							<a href="#" class="next">下一篇<span class="tit">：bbb</span></a>
+							<div class="clear"></div>
+						</div>
+					</section>
+				</article>
+			</div>
+		</div>
+		<div class="sidebar-second">
+			<section class="right-nav">
+				<header><span>推荐阅读</span></header>
+				<ul>
+					<li><a href="#">《前端开发从零学起》Lesson.1 - web前端工程师需要掌握与学习的技能</a></li>
+					<li><a href="#">《前端开发从零学起》Lesson.1 - web前端工程师需要掌握与学习的技能</a></li>
+					<li><a href="#">《前端开发从零学起》Lesson.1 - web前端工程师需要掌握与学习的技能</a></li>
+				</ul>
+			</section>
+			<section class="right-nav">
+				<header><span>标签</span></header>
+				<div class="tagcontent">
+					<a href="#">html/css(30)</a>
+					<a href="#">javascript(30)</a>
+					<a href="#">gulp(30)</a>
+					<a href="#">html/css(30)</a>
+					<a href="#">html/css(30)</a>
+					<a href="#">html/css(30)</a>
+					<a href="#">html/css(30)</a>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<footer class="main-footer">
+	Copyright © 2016 luckhuazi. All rights reserved.
+</footer>
+<script>
+	$("#togglenav").click(function () {
+		$("#tnav").stop().toggle(200)
+	});
+</script>
+</body>
+</html>

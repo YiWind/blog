@@ -5,10 +5,9 @@
 		<title>文章详情</title>
 		<link rel="stylesheet" href="__STATIC__/css/bootstrap.min.css">
 		<link rel="stylesheet" href="__STATIC__/css/style.css">
+		<link rel="stylesheet" href="__STATIC__/mditor/css/mditor.min.css"/>
 		<script src="__STATIC__/js/jquery.min.js"></script>
 		<script src="__STATIC__/js/bootstrap.min.js"></script>
-		<script src="__STATIC__/ueditor/ueditor.config.js"></script>
-		<script src="__STATIC__/ueditor/ueditor.all.min.js"></script>
 	</head>
 </block>
 <block name="breadcrumb">
@@ -58,8 +57,17 @@
 	</form>
 </block>
 <block name="script">
-	<script type="text/javascript">
-		var summary = UE.getEditor('summary');
-		var content = UE.getEditor('content');
+	<script src="__STATIC__/mditor/js/mditor.min.js"></script>
+	<script>
+		var summary = new Mditor("#summary", {
+			height: 400,
+			fixedHeight: true
+		});
+		var content = new Mditor("#content", {
+			height: 400,
+			fixedHeight: true
+		});
+		summary.openPreview();
+		content.openPreview();
 	</script>
 </block>

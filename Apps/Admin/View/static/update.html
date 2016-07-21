@@ -5,10 +5,9 @@
 	<title>Title</title>
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./mditor/css/mditor.min.css"/>
 	<script src="./js/jquery.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
-	<script src="./ueditor/ueditor.config.js"></script>
-	<script src="./ueditor/ueditor.all.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -69,7 +68,7 @@
 
 				<div class="form-group">
 					<label for="summary">概述</label>
-					<textarea id="summary" name="summary">这里写你的初始化内容</textarea>
+					<textarea name="summary" id="summary"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="content">内容</label>
@@ -80,9 +79,18 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	var summary = UE.getEditor('summary');
-	var content = UE.getEditor('content');
+<script src="./mditor/js/mditor.min.js"></script>
+<script>
+	var summary = new Mditor("#summary", {
+		height: 400,
+		fixedHeight: true
+	});
+	var content = new Mditor("#content", {
+		height: 400,
+		fixedHeight: true
+	});
+	summary.openPreview();
+	content.openPreview();
 </script>
 </body>
 </html>

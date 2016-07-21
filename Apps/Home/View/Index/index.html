@@ -1,10 +1,43 @@
-<!doctype html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-<h1>Hello World!</h1>
-</body>
-</html>
+<extend name="Base:base"/>
+<block name="breadcrumb">
+	<ul class="ui-breadcrumb">
+		<li><a href="{:U('Index/index')}">首页</a></li>
+		<li class="active">文章</li>
+	</ul>
+</block>
+<block name="article">
+	<php>$parser = new \Org\Util\Parser();</php>
+	<volist name="dataList" id="data">
+		<article class="item">
+			<header>
+				<div class="title">
+					<a href="{:U('Index/detail',array('id'=>$data['id']))}">{$data['title']}</a>
+				</div>
+				<div class="taglist">
+					<a href="javascript:;" class="tag">
+						<span class="iconfont icon-yonghu"></span>
+						luckhuazi
+					</a>
+					<a class="tag">
+						<span class="iconfont icon-yanjing"></span>
+						围观{$data['views']}次
+					</a>
+					<a class="tag">
+						<span class="iconfont icon-naozhong"></span>
+						发布：{:date('Y/m/d H:i:s', $data['create_time'])}
+					</a>
+				</div>
+			</header>
+			<section class="content">
+				<div class="markdown-body">
+					<php>echo $parser->makeHtml($data['summary']);</php>
+				</div>
+			</section>
+		</article>
+	</volist>
+</block>
+<block name="page">
+	<div class="pager">
+		{$pageInfo}
+	</div>
+</block>

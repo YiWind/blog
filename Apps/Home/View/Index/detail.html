@@ -1,0 +1,49 @@
+<extend name="Base:base"/>
+<block name="breadcrumb">
+	<ul class="ui-breadcrumb">
+		<li><a href="{:U('Index/index')}">首页</a></li>
+		<li class="active">文章详情</li>
+	</ul>
+</block>
+<block name="article">
+	<php>$parser = new \Org\Util\Parser();</php>
+	<article class="item">
+		<header>
+			<div class="title">
+				<a href="javascript:;">{$article['title']}</a>
+			</div>
+			<div class="taglist">
+				<a href="javascript:;" class="tag">
+					<span class="iconfont icon-yonghu"></span>
+					luckhuazi
+				</a>
+				<a class="tag">
+					<span class="iconfont icon-yanjing"></span>
+					围观{$article['views']}次
+				</a>
+				<a class="tag">
+					<span class="iconfont icon-naozhong"></span>
+					发布：{:date('Y/m/d H:i:s', $article['create_time'])}
+				</a>
+			</div>
+		</header>
+		<section class="content">
+			<div class="markdown-body">
+				<php>echo $parser->makeHtml($article['content'])</php>
+			</div>
+			<div class="siblings-article">
+				<php>if($preArticle){</php>
+				<a href="{:U('Index/detail',array('id'=>$preArticle['id']))}" class="pre">上一篇<span class="tit">：{$preArticle['title']}</span></a>
+				<php>}else{</php>
+				<a href="javascript:;" class="pre">上一篇<span class="tit">：没有了</span></a>
+				<php>}</php>
+				<php>if($nextArticle){</php>
+				<a href="{:U('Index/detail',array('id'=>$nextArticle['id']))}" class="next">下一篇<span class="tit">：{$nextArticle['title']}</span></a>
+				<php>}else{</php>
+				<a href="javascript:;" class="next">下一篇<span class="tit">：没有了</span></a>
+				<php>}</php>
+				<div class="clear"></div>
+			</div>
+		</section>
+	</article>
+</block>

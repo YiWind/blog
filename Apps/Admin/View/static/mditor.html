@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=yes"/>
+	<title>mditor</title>
+	<link rel="stylesheet" href="./mditor/css/mditor.min.css"/>
+</head>
+
+<body>
+<textarea name="editor" id="editor"></textarea>
+<script src="./mditor/js/mditor.min.js"></script>
+<script>
+	var mditor = new Mditor("#editor", {
+		height: 400,
+		fixedHeight: true
+	});
+	mditor.openPreview();
+</script>
+</body>
+</html>
