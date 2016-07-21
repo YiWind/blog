@@ -30,10 +30,12 @@ class IndexController extends CommonController
 	{
 		$id = I('get.id');
 		$article = D('Article');
-		if ($id) {
-			$this->article = $article->where('id=' . $id)->find();
+		$result = $article->where('id=' . $id)->find();
+		if ($result) {
+			$this->article = $result;
 		} else {
 			$this->display('Base:404');
+			exit();
 		}
 		// 上一页，下一页
 		$pre['id'] = array('lt', $id);

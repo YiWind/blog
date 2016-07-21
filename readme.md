@@ -682,5 +682,20 @@ eg:
 
 普通标签的定界符就被修改了，原来的 `{$name}` 和 `{$vo.name}` 必须使用 `<{$name}>` 和`<{$vo.name}>` 才能生效了。
 
-# 使用wangEditor 富文本编辑器 [地址](http://www.kancloud.cn/wangfupeng/wangeditor2/113961)
+# <del>使用wangEditor 富文本编辑器 [地址](http://www.kancloud.cn/wangfupeng/wangeditor2/113961)</del>
+# 采用[Mditor markdown编辑器](https://github.com/Houfeng/mditor)
 
+
+
+
+# 填过的一些坑
+```
+View
+|-- Base
+    |-- 404.html
+    |-- top.html
+|-- Index
+    |-- index.html
+```
+ - 模板正确的`<include file="" />`的方式是斜杠,eg:`<include file="Base/top"/>`
+ - 控制器正确的调用404文件的方法是$this->display('Base:404');exit;不exit之后的代码仍然会执行。除非是重定向`$this->redirect()`;
