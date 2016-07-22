@@ -689,6 +689,7 @@ eg:
 
 
 # 填过的一些坑
+
 ## 调用文件
 ```
 View
@@ -721,6 +722,28 @@ class EmptyController extends Controller
 		// **CONTROLLER_NAME**当前控制器名
 		$this->display("Base:404");
 //		$this->show("当前调用的是空控制器：" . CONTROLLER_NAME . "控制器。使用的是：" . $name . "方法。");
+	}
+}
+```
+## 验证是否登录
+当初想的时候是在CommonController.class.php里面写一个构造函数来判断是否等录...[请问thinkphp 怎么在每个方法里面判断是否登录？](https://segmentfault.com/q/1010000006007209)
+后来在回答者的回答中得到启发。
+```
+// 判断是否登录，哪些模块的哪些方法需要验证
+// config.php
+'DENY_SITUATION' => array(
+	'Article' => array('dolist','update') // Article控制器的这些方法需要验证，就是说那些方法需要验证是否登录，就在这里写上
+),
+```
+然后在CommonController.class.php的_initialize方法里面去验证
+```
+function _initialize()
+{
+	if (array_key_exists(CONTROLLER_NAME, C('DENY_SITUATION'))) { 
+		$denyAction = C('DENY_SITUATION')[CONTROLLER_NAME];
+		if (in_array(ACTION_NAME, $denyAction)) {
+			$this->isLogin();
+		}
 	}
 }
 ```
